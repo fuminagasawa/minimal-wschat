@@ -1,0 +1,126 @@
+
+body{
+    background-color: #f5f5f5;
+    padding: 25px;
+
+}
+
+.app_main{
+    border-color: rgb(61, 61, 61);
+    border-width: 0px;
+    border-style: solid;
+
+}
+
+.chatlog_area{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left:  180px;
+    padding-right: 180px;
+
+    /*min-height: 460px;
+    max-height: 80%;*/
+    height: 640px;
+    overflow-y: auto; /* 縦方向のみスクロール */
+    overflow-x: hidden; /* 横方向は非表示 */    
+    vertical-align:bottom;
+    text-align: center;
+}
+
+.speechbox_base{
+    width: 100%;
+    display: block;
+    padding:0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.205);
+}
+.icon_base{
+    width: 64px;
+    height: 64px;
+    border: 2px solid black;
+    background-image: "icon/robot.png";
+    display: inline-block;
+    padding: 0px;
+}
+
+.speechbox_tx{
+    text-align: right;
+}
+.speechbox_rx{
+    text-align: left;
+}
+
+.message_base{
+    /*text-align: left;*/
+    border-color: rgba(255, 255, 255, 0.973);
+    border-width: 2px;
+    height: auto;
+    line-height: 1.0; /* 行間を1.5倍に設定 */
+    margin: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    max-width: 80%;
+    /*padding: 10px;*/
+    border-radius: 10px; /* 半径20pxの丸み */
+    display: inline-block;
+}
+
+.message_tx{
+
+    text-align: left;
+    /*text-align: left;*/
+    background-color: rgb(199, 199, 199);
+    max-width: 50%;
+    width: auto;
+    margin-left: auto;
+    /*background-color: #89dd79;*/
+}
+
+.message_rx{
+    text-align: left;
+    width:80%;
+    min-width: 60%;
+    /*background-color: #b1b1b1;*/
+}
+
+.chat-input{
+    text-align: center;
+    padding: 0px;
+    vertical-align: top;
+
+    display: flex;            /* Flexboxを指定 */
+    justify-content: center;  /* 水平方向の中央寄せ */
+    align-items: center;      /* 垂直方向の中央寄せ */
+}
+
+.message_input{
+    width: 600px;
+    min-height: 80px;
+    resize: none;
+    padding: 10px;
+    font-size: 120%;
+    padding-left: 25px;
+    box-sizing: border-box;
+     
+    border-radius: 15px; /* 半径20pxの丸み */
+    display: inline-block;
+    field-sizing: content;
+}
+
+.button-send{
+    width: 120px;
+    height: 80px;
+    margin-left: 15px;
+    border-radius: 15px; /* 半径20pxの丸み */
+    display: inline-block;
+}
+
+.debugger_footer{
+    display: none;
+    margin-top: 200px;
+
+}
