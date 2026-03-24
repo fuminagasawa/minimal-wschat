@@ -9,7 +9,11 @@ body{
     border-color: rgb(61, 61, 61);
     border-width: 0px;
     border-style: solid;
+}
 
+.main_screen_container{
+    width: 100%;
+    max-height: 100vh;
 }
 
 .chatlog_area{
@@ -18,9 +22,8 @@ body{
     padding-left:  180px;
     padding-right: 180px;
 
-    /*min-height: 460px;
-    max-height: 80%;*/
-    height: 640px;
+    min-height: 200px;
+
     overflow-y: auto; /* 縦方向のみスクロール */
     overflow-x: hidden; /* 横方向は非表示 */    
     vertical-align:bottom;

@@ -13,44 +13,37 @@
 <!-- チャットアプリの画面 -->
 <body onload="page_onload();">
 
-    <div class="app_header">
-      <h1 class="app_title">ChatApp_test</h1>
-      <span id="label_isconnected">[Connection Indicator]</span>
-      <span>, </span>
-      <span id="label_session_id"></span>
-    </div>
-    <div class="app_main">
-        <button id="kickoff_chat_button" type="button" onclick="kickoff_chat()">新規対話</button>
-        <br>
-        <input type="text" id="restore_session_id_input" placeholder="復元するセッションIDを入力">
-        <button id="restore_chat_button" type="button" onclick="restore_session_manual()">対話を復元</button>
-        
-        <br>
-        <input type="checkbox" id="checkbox_activate_behavior_listener">
-        <label for="checkbox_activate_behavior_listener">行動監視リスナー有効</label>
-        <br>
-        <div class="chatlog_area", id="chatlog_area">
-
-            <div class="speechbox_base speechbox_tx">
-                <p class="message_base message_tx">
-                    こんにちは
-                </p>
-            </div>
-
-            <div class="speechbox_base speechbox_rx">
-                <p class="message_base message_rx">こんにちは</p>
-            </div>
-            <div class="speechbox_base speechbox_rx speechbox_processing" id="message_box_processing">
-                <p class="message_base message_rx message_processing">...</p>
-            </div>
-
-
+    <div id="main_screen_container" class="main_screen_container">
+        <div class="app_header">
+        <h1 class="app_title">Minimal-wschat</h1>
+        <span id="label_isconnected">[Connection Indicator]</span>
+        <span>, </span>
+        <span id="label_session_id"></span>
         </div>
+        <div class="app_main">
+            <button id="kickoff_chat_button" type="button" onclick="kickoff_chat()">新規対話</button>
+            <div class="chatlog_area", id="chatlog_area">
+                <div class="speechbox_base speechbox_tx">
+                    <p class="message_base message_tx">
+                        こんにちは
+                    </p>
+                </div>
 
-        <div class="app_input_area">
-            <div class="chat-input">
-                <textarea id="message_input" class="message_input" name="message" placeholder="メッセージを入力" maxlength="512"></textarea>
-                <button id="sendButton" class="button-send btn-primary" type="button" onclick="send_message()">送信<br><u>(Ctrl+Enter)</u></button>
+                <div class="speechbox_base speechbox_rx">
+                    <p class="message_base message_rx">こんにちは</p>
+                </div>
+                <div class="speechbox_base speechbox_rx speechbox_processing" id="message_box_processing">
+                    <p class="message_base message_rx message_processing">...</p>
+                </div>
+
+
+            </div>
+
+            <div class="app_input_area">
+                <div class="chat-input">
+                    <textarea id="message_input" class="message_input" name="message" placeholder="メッセージを入力" maxlength="512"></textarea>
+                    <button id="sendButton" class="button-send btn-primary" type="button" onclick="send_message()">送信<br><u>(Ctrl+Enter)</u></button>
+                </div>
             </div>
         </div>
     </div>
@@ -59,6 +52,9 @@
             <summary>詳細設定</summary>
             <label for="backend_address">バックエンドサーバ</label>
             <input type="text" id="backend_address" value="localhost:8080" style="width:300px;">
+            <br>
+            <input type="text" id="restore_session_id_input" placeholder="復元するセッションIDを入力">
+            <button id="restore_chat_button" type="button" onclick="restore_session_manual()">対話を復元</button>
         </details>  
     </div>
 
@@ -75,7 +71,5 @@
     </div>
 
     <script src="./chatapp.js"></script>
-    <script src="./behavior_listener.js"></script>
-
 </body>
 </html>
