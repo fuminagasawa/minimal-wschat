@@ -1,0 +1,6 @@
+fastapi==0.135.2
+uvicorn==0.42.0
+websockets==16.0
+
+# OpenAI API client is used only in the example. You can remove it if you don't need it.
+openai==2.29
