@@ -10,7 +10,6 @@
 
 import os, json, re, threading, time
 
-import cv2
 from openai import OpenAI
 
 
@@ -26,7 +25,7 @@ client = None
 
 # --- Slot schema & helper ----------------------------------------------------
 
-model_name     = "gpt-4.1"
+model_name     = "gpt-5.2"
 
 def generate_by_llm( model_use, prompt):
 

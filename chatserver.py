@@ -140,7 +140,6 @@ def load_dialog_state(session_id):
 # 監視ログを追記保存する関数
 async def append_behavior_log(session_id, behavior_log_entries, append_target_entry = "log"):
     
-
     print(f"Appending behavior log for session_id: {session_id}, entries: {len(behavior_log_entries)}")
 
     filepath = get_logfile_path( "behavior", session_id)
@@ -167,37 +166,6 @@ async def append_behavior_log(session_id, behavior_log_entries, append_target_en
     print(f"Appended {len(behavior_log_entries)} behavior log entries to {filepath}")
 
     return
-
-
-@app.websocket("/behavior_ws")
-async def websocket_behavior_endpoint(websocket: WebSocket):
-
-    await websocket.accept()
-
-    try:
-
-        while True:
-            data = await websocket.receive_text()
-            #print(f"Received behavior data: {data}")
-
-            json_data = json.loads(data)
-            session_id = json_data.get("session_id", None)
-
-            if not session_id is None:
-                behavior_log_entries = json_data.get("logs", [])
-    
-                # 監視ログを追記保存
-                await append_behavior_log(session_id, behavior_log_entries)
-
-            else:
-                print("No session_id provided in behavior data")
-
-
-    except WebSocketDisconnect:
-        print("Behavior WebSocket connection closed")
-
-    
-
 
 
 @app.websocket("/chat_ws")

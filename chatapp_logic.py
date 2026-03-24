@@ -10,20 +10,11 @@
 
 import os, json, re, threading, time
 
-import cv2
 from openai import OpenAI
 
 from chatlogic_simple import initialize as initialize_simple
 from chatlogic_simple import start_chat as start_chat_simple    
 from chatlogic_simple import process_chat_exchange as process_chat_exchange_simple 
-
-from chatlogic_q_tree import initialize as initialize_q_tree
-from chatlogic_q_tree import start_chat as start_chat_q_tree
-from chatlogic_q_tree import process_chat_exchange as process_chat_exchange_q_tree
-
-
-
-temp_image_path = "./tmp/__tmpgraph.png"
 
 
 
@@ -43,23 +34,16 @@ client = OpenAI(api_key=api_key)
 
 
 chatlogic = "simple"
-#chatlogic = "q_tree"
 
 
 # debug utils ----------------------------------------------------
 
-def initialize_chatlogic(chatlogic_selected):
+def initialize_chatlogic(session_id:str=""):
 
-
-    print(f"chatlogic_selected:{chatlogic_selected}")
-
-    global chatlogic
-    chatlogic = chatlogic_selected
+    print(f"chatlogic_selected:{chatlogic}, session_id:{session_id}")
 
     if chatlogic == "simple":
         initialize_simple()
-    elif chatlogic == "q_tree":
-        initialize_q_tree()
 
 
 
@@ -68,8 +52,6 @@ def start_chat(session_id:str=""):
 
     if chatlogic == "simple":
         return start_chat_simple()
-    elif chatlogic == "q_tree":
-        return start_chat_q_tree(session_id)
 
 
 def process_chat_exchange(dialog_state:dict, user_message:str, session_id:str=""):
@@ -79,8 +61,6 @@ def process_chat_exchange(dialog_state:dict, user_message:str, session_id:str=""
 
     if chatlogic == "simple":
         system_message, dialog_state = process_chat_exchange_simple( dialog_state, user_message)
-    elif chatlogic == "q_tree":
-        system_message, dialog_state = process_chat_exchange_q_tree( dialog_state, user_message, session_id)
 
 
     return system_message, dialog_state
@@ -95,7 +75,7 @@ if __name__ == "__main__":
     print(f"Dialog state: {dialog_state}")
 
 
-    user_input = "最近、よく眠れなくて困っています。"
+    user_input = "こんにちは"
     print(f"User input: {user_input}")
     system_message, dialog_state = process_chat_exchange( dialog_state, user_input)
 
