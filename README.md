@@ -1,6 +1,6 @@
 # minimal-wschat
 Websocketを使うチャットアプリ。改造しやすく、ちいさくてシンプルでありたい。
-
+煮るなり焼くなり改良するなり、お好きにどうぞ。
 
 # Requirements
 
